@@ -3,10 +3,9 @@ const mongodb = require('mongodb');
 
 const router = express.Router();
 
-// Get posts
+// Get démarches
 router.get('/', (req, res) => {
-  res.send('hello'); 
+  res.send('liste des démarches');
 });
-
 
 module.exports = router;

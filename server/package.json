@@ -4,8 +4,8 @@
   "description": "Express server for tab-tracker app",
   "main": "app.js",
   "scripts": {
-    "start": "node ./app.js",
-    "dev": "nodemon ./app.js"
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
   },
   "author": "Eric Grandry",
   "license": "MIT",

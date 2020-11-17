@@ -8,10 +8,10 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-const posts = require('./routes/api/posts');
+const demarches = require('../routes/api/demarches');
 
-app.use('/api/posts', posts);
+app.use('/api/demarches', demarches);
 
 const port = process.env.PORT || 3000;
 
-app.listen(port, () => console.log('Server started on port ${port}'));
+app.listen(port, () => console.log(`Server started on port ${port}`));
