@@ -1,6 +1,7 @@
 const express = require('express');
-const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://admin123:admin123@cluster0.s1slf.mongodb.net/sample_training?retryWrites=true&w=majority";
+const mongodb = require('mongodb');
+const MongoClient = mongodb.MongoClient;
+const uri = "mongodb+srv://tree123:Tree123@cluster0.s1slf.mongodb.net/sample_training?retryWrites=true&w=majority";
 
 const router = express.Router();
 
@@ -11,6 +12,7 @@ router.get('/', async (req, res) => {
   //res.send('liste des démarches');
 });
 
+// Create démarche
 router.post('/', async (req, res) => {
   const demarches = await loadDemarchesCatalog();
   await demarches.insertOne({
@@ -20,6 +22,13 @@ router.post('/', async (req, res) => {
   });
   res.status(201).send();
 });
+
+// Delete démarche
+router.delete('/:id', async (req, res) => {
+  const demarches = await loadDemarchesCatalog();
+  await demarches.deleteOne({_id: new mongodb.ObjectID(req.params.id)});
+  res.status(200).send();
+})
 
 async function loadDemarchesCatalog() {
   const client = await MongoClient.connect(uri, {
