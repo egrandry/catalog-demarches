@@ -4,7 +4,7 @@
   "description": "Express server for tab-tracker app",
   "main": "app.js",
   "scripts": {
-    "start": "node src/app.js",
+    "start": "node src/app.js", 
     "dev": "nodemon src/app.js"
   },
   "author": "Eric Grandry",
